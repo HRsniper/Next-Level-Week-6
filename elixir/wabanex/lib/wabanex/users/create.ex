@@ -1,6 +1,6 @@
 defmodule Wabanex.Users.Create do
   @moduledoc """
-  CreateUsers.
+  Create Users.
   """
 
   alias Wabanex.{Repo, User}

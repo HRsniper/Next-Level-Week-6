@@ -2,11 +2,10 @@ defmodule Wabanex.UsersTest do
   use Wabanex.DataCase
 
   alias Wabanex.Users
+  alias Wabanex.User
 
   describe "users" do
-    alias Wabanex.User
-
-    @valid_attrs %{email: "some email", name: "some name", password: "some password"}
+    @valid_attrs %{email: "some@email.com", name: "some name", password: "some_password"}
     @update_attrs %{
       email: "some updated email",
       name: "some updated name",
@@ -18,7 +17,7 @@ defmodule Wabanex.UsersTest do
       {:ok, user} =
         attrs
         |> Enum.into(@valid_attrs)
-        |> Users.create_user()
+        |> Users.Create.call()
 
       user
     end
@@ -34,14 +33,14 @@ defmodule Wabanex.UsersTest do
     end
 
     test "create_user/1 with valid data creates a user" do
-      assert {:ok, %User{} = user} = Users.create_user(@valid_attrs)
-      assert user.email == "some email"
+      assert {:ok, %User{} = user} = Users.Create.call(@valid_attrs)
+      assert user.email == "some@email.com"
       assert user.name == "some name"
-      assert user.password == "some password"
+      assert user.password == "some_password"
     end
 
     test "create_user/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Users.create_user(@invalid_attrs)
+      assert {:error, %Ecto.Changeset{}} = Users.Create.call(@invalid_attrs)
     end
 
     test "update_user/2 with valid data updates the user" do
