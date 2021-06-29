@@ -12,6 +12,10 @@
 
 Wabanex.Repo.insert!(%Wabanex.User{email: "hr@email.com", name: "Hercules", password: "123456"})
 
+user = Wabanex.Repo.all(Wabanex.User)
+[head | tail] = user
+user_id = head.id
+
 Wabanex.Repo.insert!(%Wabanex.Training{
   end_date: ~D[2021-06-28],
   exercises: [
@@ -30,5 +34,5 @@ Wabanex.Repo.insert!(%Wabanex.Training{
     }
   ],
   start_date: ~D[2021-06-26],
-  user_id: "27523bbd-0967-4ce4-9cae-5e4964e76fd3"
+  user_id: user_id
 })
