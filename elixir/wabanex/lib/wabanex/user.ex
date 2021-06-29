@@ -31,4 +31,13 @@ defmodule Wabanex.User do
     |> validate_format(:email, ~r/@/)
     |> unique_constraint([:email])
   end
+
+  def changeset(%__MODULE__{} = user, params) do
+    user
+    |> cast(params, @fields)
+    |> validate_length(:name, min: 2)
+    |> validate_length(:password, min: 6)
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint([:email])
+  end
 end
