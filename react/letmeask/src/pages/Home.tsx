@@ -7,7 +7,7 @@ import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components";
 import { useAuth } from "../hooks/useAuth";
 
-import "../styles/auth.scss";
+import "../styles/auth.css";
 
 function Home() {
   const history = useHistory();
