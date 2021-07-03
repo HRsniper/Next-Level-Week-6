@@ -13,7 +13,7 @@
   transition: filter 0.2s;
 }
 
-.button img {
+.button > img {
   margin-right: 8px;
 }
 
