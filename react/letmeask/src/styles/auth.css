@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-#page-auth > aside {
+#page-auth aside {
   flex: 7;
   background: #835afd;
   color: #fff;
@@ -14,24 +14,24 @@
   padding: 120px 80px;
 }
 
-#page-auth > aside > img {
+#page-auth aside img {
   max-width: 320px;
 }
 
-#page-auth > aside > strong {
+#page-auth aside strong {
   font: 700 36px "Poppins", sans-serif;
   line-height: 42px;
   margin-top: 16px;
 }
 
-#page-auth > aside > p {
+#page-auth aside p {
   font-size: 24px;
   line-height: 32px;
   margin-top: 16px;
   color: #f8f8f8;
 }
 
-#page-auth > main {
+#page-auth main {
   flex: 8;
   padding: 0 32px;
   display: flex;
@@ -52,13 +52,13 @@
   align-self: center;
 }
 
-#page-auth .main-content > h2 {
+#page-auth .main-content h2 {
   font-size: 24px;
   margin: 64px 0 24px;
   font-family: "Poppins", sans-serif;
 }
 
-#page-auth .main-content > form > input {
+#page-auth .main-content form input {
   height: 50px;
   border-radius: 8px;
   padding: 0 16px;
@@ -66,22 +66,22 @@
   border: 1px solid #a8a8b3;
 }
 
-#page-auth .main-content > form > button {
+#page-auth .main-content form button {
   margin-top: 16px;
 }
 
-#page-auth .main-content > form > button,
-#page-auth .main-content > form > input {
+#page-auth .main-content form button,
+#page-auth .main-content form input {
   width: 100%;
 }
 
-#page-auth .main-content > p {
+#page-auth .main-content p {
   font-size: 14px;
   color: #737380;
   margin-top: 16px;
 }
 
-#page-auth .main-content > p > a {
+#page-auth .main-content p a {
   color: #e559f9;
 }
 
@@ -100,7 +100,7 @@
   transition: filter 0.2s;
 }
 
-#page-auth .create-room > img {
+#page-auth .create-room img {
   margin-right: 8px;
 }
 

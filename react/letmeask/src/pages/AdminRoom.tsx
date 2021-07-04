@@ -6,7 +6,7 @@ import checkImg from "../assets/images/check.svg";
 import answerImg from "../assets/images/answer.svg";
 
 import { Button, RoomCode, Question } from "../components";
-// import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { useRoom } from "../hooks/useRoom";
 import { database } from "../services/firebase";
 
@@ -17,7 +17,7 @@ type RoomParams = {
 };
 
 function AdminRoom() {
-  // const { user, signOut } = useAuth();
+  const { user, signOut } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { questions, title } = useRoom(roomId);
@@ -49,6 +49,11 @@ function AdminRoom() {
     });
   }
 
+  async function handleSignOut() {
+    await signOut();
+    history.push("/");
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -64,9 +69,19 @@ function AdminRoom() {
       </header>
 
       <main>
-        <div className="room-title">
-          <h1>Sala {title}</h1>
-          {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+        <div className="room-title" style={{ justifyContent: "space-between" }}>
+          <div className="user-info">
+            <img src={user?.avatar} alt={user?.name} />
+            <span>{user?.name}</span>
+            <Button isOutlined onClick={handleSignOut}>
+              Sign Out
+            </Button>
+          </div>
+
+          <div className="title">
+            <h1>Sala {title}</h1>
+            {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+          </div>
         </div>
 
         <div className="question-list">

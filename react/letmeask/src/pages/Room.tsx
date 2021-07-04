@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 import logoImg from "../assets/images/logo.svg";
 
@@ -20,6 +20,7 @@ function Room() {
   const [newQuestion, setNewQuestion] = useState("");
   const roomId = params.id;
   const { questions, title } = useRoom(roomId);
+  const history = useHistory();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -57,6 +58,11 @@ function Room() {
     }
   }
 
+  async function handleSignOut() {
+    await signOut();
+    history.push("/");
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -82,9 +88,11 @@ function Room() {
           <div className="form-footer">
             {user ? (
               <div className="user-info">
-                <img src={user.avatar} alt={user.name} />
-                <span>{user.name}</span>
-                <button onClick={signOut}>sign out</button>
+                <img src={user?.avatar} alt={user?.name} />
+                <span>{user?.name}</span>
+                <Button isOutlined onClick={handleSignOut}>
+                  Sign Out
+                </Button>
               </div>
             ) : (
               <span>

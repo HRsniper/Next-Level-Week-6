@@ -17,7 +17,7 @@
   height: 100%;
 }
 
-.room-code > span {
+.room-code span {
   display: block;
   align-self: center;
   flex: 1;
@@ -27,6 +27,6 @@
   font-weight: 500;
 }
 
-.room-code > span > div {
+.room-code div {
   color: #835afd;
 }

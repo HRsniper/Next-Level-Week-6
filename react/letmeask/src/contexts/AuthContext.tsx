@@ -21,7 +21,7 @@ type AuthContextProviderProps = {
 const AuthContext = createContext({} as AuthContextType);
 
 function AuthContextProvider(props: AuthContextProviderProps) {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | undefined>();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -67,7 +67,6 @@ function AuthContextProvider(props: AuthContextProviderProps) {
 
   async function signOut() {
     await auth.signOut();
-
     setUser(undefined);
   }
 
